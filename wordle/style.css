@@ -1,0 +1,155 @@
+:root {
+  --header-height: 50px;
+  --bg-color: #222;
+  --text-color: #fff;
+  --grey: #3a3a3a;
+  --yellow: yellow;
+  --green: green;
+  --key-height: 48px;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  text-align: center;
+  height: var(--header-height);
+}
+
+h1 {
+  margin: 0;
+  line-height: var(--header-height);
+}
+
+main {
+  display: grid;
+  grid-template-rows: 100px 1fr auto;
+  height: calc(100vh - var(--header-height));
+}
+
+#message {
+  display: grid;
+  place-items: center;
+}
+
+#message div {
+  padding: 1rem 2rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: bold;
+  border-radius: 0.5rem;
+}
+
+#board {
+  display: grid;
+  place-items: center;
+}
+
+#tiles {
+  display: grid;
+  height: 80%;
+  aspect-ratio: 5/6;
+  gap: 0.33rem;
+}
+
+#tiles[data-length="5"] {
+  grid-template-rows: repeat(5, 1fr);
+}
+
+#tiles[data-length="6"] {
+  grid-template-rows: repeat(6, 1fr);
+}
+
+#tiles[data-length="7"] {
+  grid-template-rows: repeat(7, 1fr);
+}
+
+#tiles[data-length="8"] {
+  grid-template-rows: repeat(8, 1fr);
+}
+
+#tiles > div {
+  display: grid;
+  gap: 0.33rem;
+}
+
+#tiles > div[data-length="4"] {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#tiles > div[data-length="5"] {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+#tiles > div[data-length="6"] {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+#tiles > div[data-length="7"] {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.tile {
+  font-weight: bold;
+  font-size: 1.5rem;
+  border: 1px solid var(--grey);
+  display: grid;
+  place-items: center;
+}
+
+.tile.flip {
+  animation: 0.5s linear flipping;
+}
+
+.grey-overlay {
+  background-color: var(--grey);
+  border: none;
+}
+.yellow-overlay {
+  background-color: var(--yellow);
+  border: none;
+}
+.green-overlay {
+  background-color: var(--green);
+  border: none;
+}
+
+@keyframes flipping {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+#keyboard {
+  display: grid;
+  grid-template-columns: repeat(20, calc(var(--key-height) / 2));
+  grid-template-rows: repeat(3, var(--key-height));
+  row-gap: calc(var(--key-height) / 4);
+  margin: 1rem auto;
+}
+
+#keyboard button {
+  grid-column: auto / span 2;
+}
+
+#keyboard button:nth-child(11) {
+  grid-column: 2 / span 2;
+}
+
+#keyboard button:nth-child(20),
+#keyboard button:nth-child(28) {
+  grid-column: auto / span 3;
+}

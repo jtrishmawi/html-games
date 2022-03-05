@@ -1,0 +1,12 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "browser-sync start -s -f . --no-notify --host $LOCAL_IP --port 9000"
+  },
+  "dependencies": {
+    "browser-sync": "^2.27.7"
+  }
+}

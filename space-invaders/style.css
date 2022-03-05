@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #000;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  font-family: monospace;
+  color: #fff;
+  user-select: none;
+}
+
+#message {
+  position: fixed;
+  left: 30vw;
+  top: 1rem;
+}
+
+#score {
+  position: fixed;
+  right: 30vw;
+  top: 1rem;
+}
+
+canvas {
+  width: 100vmin;
+  aspect-ratio: 1;
+}
