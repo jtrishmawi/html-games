@@ -59,6 +59,14 @@ main {
   gap: 0.33rem;
 }
 
+#tiles[data-length="3"] {
+  grid-template-rows: repeat(3, 1fr);
+}
+
+#tiles[data-length="4"] {
+  grid-template-rows: repeat(4, 1fr);
+}
+
 #tiles[data-length="5"] {
   grid-template-rows: repeat(5, 1fr);
 }
@@ -78,6 +86,10 @@ main {
 #tiles > div {
   display: grid;
   gap: 0.33rem;
+}
+
+#tiles > div[data-length="3"] {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 #tiles > div[data-length="4"] {
@@ -135,7 +147,7 @@ main {
 
 #keyboard {
   display: grid;
-  grid-template-columns: repeat(20, calc(var(--key-height) / 2));
+  grid-template-columns: repeat(23, calc(var(--key-height) / 2));
   grid-template-rows: repeat(3, var(--key-height));
   row-gap: calc(var(--key-height) / 4);
   margin: 1rem auto;
@@ -145,11 +157,11 @@ main {
   grid-column: auto / span 2;
 }
 
-#keyboard button:nth-child(11) {
+#keyboard button:nth-child(12) {
   grid-column: 2 / span 2;
 }
 
-#keyboard button:nth-child(20),
-#keyboard button:nth-child(28) {
+#keyboard button:nth-child(11) ,
+#keyboard button:nth-child(21) {
   grid-column: auto / span 3;
 }

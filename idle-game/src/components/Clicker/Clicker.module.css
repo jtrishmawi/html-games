@@ -1,0 +1,5 @@
+.clicker {
+    display: flex;
+    gap: 1rem;
+    margin-block-end: 0.5rem;
+}

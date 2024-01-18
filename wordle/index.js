@@ -2,18 +2,19 @@ const message = document.getElementById("message");
 const tiles = document.getElementById("tiles");
 const keyboard = document.getElementById("keyboard");
 
-let wordle = "castle".toUpperCase();
+const wordle = "abc".toUpperCase();
 // prettier-ignore
-const keys = ["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","ENTER","Z","X","C","V","B","N","M","«"];
+const keys = ["Q","W","E","R","T","Y","U","I","O","P","«","A","S","D","F","G","H","J","K","L","ENTER","Z","X","C","V","B","N","M"];
 
-const guessRows = Array(wordle.length + 1).fill(Array(wordle.length).fill(""));
-
+const guessCount = 8;
 let currentRow = 0;
 let currentIndex = 0;
 let isGameOver = false;
 
+const guessRows = Array(guessCount).fill(Array(wordle.length).fill(""));
+
 // build board
-for (let rowIndex = 0; rowIndex < wordle.length + 1; rowIndex++) {
+for (let rowIndex = 0; rowIndex < guessCount; rowIndex++) {
   const rowElement = document.createElement("div");
   rowElement.setAttribute("id", "row-" + rowIndex);
   rowElement.dataset.length = wordle.length;
@@ -24,7 +25,7 @@ for (let rowIndex = 0; rowIndex < wordle.length + 1; rowIndex++) {
     rowElement.append(tileElement);
   }
   tiles.append(rowElement);
-  tiles.dataset.length = wordle.length + 1;
+  tiles.dataset.length = guessCount;
 }
 
 // keyboard
